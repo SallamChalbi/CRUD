@@ -28,11 +28,24 @@
                 <textarea rows="4" class="form-control" id="productDescription" placeholder="Product Description"></textarea>
             </div>
 
-            <button class="btn btn-primary w-100" onclick="getData()">Add Product</button>
+            <button class="btn btn-primary w-100" onclick="addData()">Add Product</button>
         </section>
 
         <section class="bg-danger mt-4">
-            <p id="data"></p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableData">
+                    
+                </tbody>
+            </table>
         </section>
     </main>
 
