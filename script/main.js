@@ -4,7 +4,8 @@ var productCategory = document.getElementById("productCategory")
 var productDescription = document.getElementById("productDescription")
 var tableData = document.getElementById("tableData")
 
-var productList = []
+var productList = JSON.parse(localStorage.getItem("Products")) || []
+displayData();
 
 function addData(){
     var product = {
@@ -14,6 +15,7 @@ function addData(){
         desc: productDescription.value
     }
     productList.push(product);
+    localStorage.setItem("Products", JSON.stringify(productList))
     displayData()
 }
 
