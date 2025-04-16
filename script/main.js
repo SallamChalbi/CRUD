@@ -3,8 +3,9 @@ var productPrice = document.getElementById("productPrice")
 var productCategory = document.getElementById("productCategory")
 var productDescription = document.getElementById("productDescription")
 var tableData = document.getElementById("tableData")
+var keyStorage = "Products"
 
-var productList = JSON.parse(localStorage.getItem("Products")) || []
+var productList = JSON.parse(localStorage.getItem(keyStorage)) || []
 displayData();
 
 function addData(){
@@ -15,7 +16,13 @@ function addData(){
         desc: productDescription.value
     }
     productList.push(product);
-    localStorage.setItem("Products", JSON.stringify(productList))
+    localStorage.setItem(keyStorage, JSON.stringify(productList))
+    displayData()
+}
+
+function deleteProduct(element){
+    productList.splice(element, 1)
+    localStorage.setItem(keyStorage, JSON.stringify(productList))
     displayData()
 }
 
@@ -30,10 +37,11 @@ function displayData(){
                 <td>${productList[i].desc}</td>
                 <td>
                     <button class="btn btn-outline-warning btn-sm">Update</button>
-                    <button class="btn btn-outline-danger btn-sm">Delete</button>
+                    <button class="btn btn-outline-danger btn-sm" onclick="deleteProduct(${i})">Delete</button>
                 </td>
             </tr>
         `
     }
     tableData.innerHTML = box
 }
+
