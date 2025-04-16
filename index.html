@@ -28,7 +28,8 @@
                 <textarea rows="4" class="form-control" id="productDescription" placeholder="Product Description"></textarea>
             </div>
 
-            <button class="btn btn-primary w-100" onclick="addProduct()">Add Product</button>
+            <button id="addBtn" class="btn btn-primary w-100" onclick="addProduct()">Add Product</button>
+            <button id="updateBtn" class="btn btn-primary w-100 d-none" onclick="updateProduct()">Update Product</button>
         </section>
 
         <input id="searchInput" oninput="searchProduct()" type="text" class="form-control my-3 w-75 mx-auto" placeholder="Search...">
