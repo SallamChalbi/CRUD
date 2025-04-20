@@ -13,30 +13,30 @@
         <section class="bg-info p-3">
             <div class="form-input mb-2">
                 <label for="productName">ProductName:</label>
-                <input oninput="regexName()" type="text" class="form-control" id="productName" placeholder="Product Name">
+                <input type="text" class="form-control" id="productName" placeholder="Product Name">
                 <p id="nameFeedback" class="alert alert-danger d-none"></p>
             </div>
             <div class="form-input mb-2">
                 <label for="productPrice">ProductPrice:</label>
-                <input oninput="regexPrice()" type="number" class="form-control" id="productPrice" placeholder="Product Price">
+                <input type="number" class="form-control" id="productPrice" placeholder="Product Price">
                 <p id="priceFeedback" class="alert alert-danger d-none"></p>
             </div>
             <div class="form-input mb-2">
                 <label for="productCategory">ProductCategory:</label>
-                <input oninput="regexCategory()" type="text" class="form-control" id="productCategory" placeholder="Product Category">
+                <input type="text" class="form-control" id="productCategory" placeholder="Product Category">
                 <p id="categoryFeedback" class="alert alert-danger d-none"></p>
             </div>
             <div class="form-input mb-2">
                 <label for="productDescription">ProductDescription:</label>
-                <textarea oninput="regexDescription()" rows="4" class="form-control" id="productDescription" placeholder="Product Description"></textarea>
+                <textarea rows="4" class="form-control" id="productDescription" placeholder="Product Description"></textarea>
                 <p id="descriptionFeedback" class="alert alert-danger d-none"></p>
             </div>
 
-            <button id="addBtn" class="btn btn-primary w-100" onclick="addProduct()">Add Product</button>
-            <button id="updateBtn" class="btn btn-primary w-100 d-none" onclick="updateProduct()">Update Product</button>
+            <button id="addBtn" class="btn btn-primary w-100">Add Product</button>
+            <button id="updateBtn" class="btn btn-primary w-100 d-none">Update Product</button>
         </section>
 
-        <input id="searchInput" oninput="searchProduct()" type="text" class="form-control my-3 w-75 mx-auto" placeholder="Search...">
+        <input id="searchInput" type="text" class="form-control my-3 w-75 mx-auto" placeholder="Search...">
 
         <section class="bg-danger mt-4">
             <table class="table">

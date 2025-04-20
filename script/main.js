@@ -6,10 +6,11 @@ var tableData = document.getElementById("tableData")
 var searchInput = document.getElementById("searchInput")
 var addBtn = document.getElementById("addBtn")
 var updateBtn = document.getElementById("updateBtn")
-var nameFeedback = document.getElementById("nameFeedback")
-var priceFeedback = document.getElementById("priceFeedback")
-var categoryFeedback = document.getElementById("categoryFeedback")
-var descriptionFeedback = document.getElementById("descriptionFeedback")
+
+var nameFeedback = document.querySelector("#nameFeedback")
+var priceFeedback = document.querySelector("#priceFeedback")
+var categoryFeedback = document.querySelector("#categoryFeedback")
+var descriptionFeedback = document.querySelector("#descriptionFeedback")
 
 var keyStorage = "Products"
 var indexInput = 0
@@ -17,7 +18,7 @@ var indexInput = 0
 var productList = JSON.parse(localStorage.getItem(keyStorage)) || []
 displayData();
 
-function addProduct(){
+addBtn.addEventListener('click', function(){
     if(regexName() && regexPrice() && regexCategory() && regexDescription()){
         var product = {
             name: productName.value,
@@ -33,7 +34,7 @@ function addProduct(){
     else{
         noValid();
     }
-}
+});
 
 function setData(index){
     indexInput = index
@@ -47,7 +48,7 @@ function setData(index){
     updateBtn.classList.remove("d-none")
 }
 
-function updateProduct(){
+updateBtn.addEventListener('click', function(){
     if(regexName() && regexPrice() && regexCategory() && regexDescription()){
         var product = {
             name: productName.value,
@@ -67,7 +68,7 @@ function updateProduct(){
     else{
         noValid();
     }
-}
+})
 
 function deleteProduct(element){
     productList.splice(element, 1)
@@ -94,6 +95,7 @@ function displayData(){
     tableData.innerHTML = box
 }
 
+searchInput.addEventListener('input', searchProduct)
 function searchProduct(){
     var term = searchInput.value.toLowerCase()
     var box = ''
@@ -126,6 +128,7 @@ function clearForm(){
     productCategory.classList.remove("is-valid")
 }
 
+productName.addEventListener('input', regexName);
 function regexName(){
     var regex = /^[A-Z][a-z\s?]{2,10}$/
     
@@ -147,6 +150,7 @@ function regexName(){
     }
 }
 
+productPrice.addEventListener('input', regexPrice)
 function regexPrice(){
     var regex = /^[1-9][0-9]{2,5}$/
     
@@ -168,6 +172,7 @@ function regexPrice(){
     }
 }
 
+productCategory.addEventListener('input', regexCategory)
 function regexCategory(){
     var regex = /^[A-Z][a-z\s?]{2,15}$/
     
@@ -189,6 +194,7 @@ function regexCategory(){
     }
 }
 
+productDescription.addEventListener('input', regexDescription)
 function regexDescription(){
     var regex = /^$|^[A-Z][a-zA-Z0-9 ,.\-()!'+_]*$/
     
